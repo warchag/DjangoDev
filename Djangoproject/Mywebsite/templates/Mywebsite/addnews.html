@@ -1,0 +1,23 @@
+{% extends 'Mywebsite/header.html' %} {% block content %} {% load wysiwyg %} {% wysiwyg_setup %}
+<br>
+<h1>เพิ่มข้อมูลข่าวสาร</h1>
+<form action="{% url 'addnewsdata' %}" enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    <div class='form-group'>
+        <label for="">ชื่อข่าวสาร</label>
+        <input type="text" class="form-control" name="news_title" required>
+    </div>
+    <div class='form-group'>
+        <label for="">รายละเอียดข่าวสาร</label>
+        <textarea id="detail" type="text" class="form-control" name="news_detail" rows="5" required></textarea>
+    </div>
+
+    <div class="form-group">
+        <input type='file' name='news_photo' accept="image/x-png,image/gif,image/jpeg" required>
+        <img id="blah" src="#" alt="" class="img-thumbnail" />
+    </div>
+    <input type="submit" value="บันทึกข่าวสาร" class="btn btn-success">
+
+
+</form>
+{% wysiwyg_editor "detail" %} {% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'Mywebsite/header.html' %} {% block content %} {% load static %}
+<br>
+<h1>ติดเชื้อสะสม :{{ covid19.Confirmed }}</h1>
+<h1>หายแล้ว :{{ covid19.Recovered }}</h1>
+<h1>รักษาอยู่ใน รพ.:{{ covid19.Hospitalized }}</h1>
+<h1>เสียชีวิต :{{ covid19.Deaths }}</h1>
+<h1>ติดเชื้อล่าสุด :{{ covid19.NewConfirmed }}</h1>
+<h1>{{ covid19.NewRecovered }}</h1>
+<h1>{{ covid19.NewHospitalized }}</h1>
+<h1>{{ covid19.NewDeaths }}</h1>
+<h1>{{ covid19.UpdateDate }}</h1>
+{% endblock %}

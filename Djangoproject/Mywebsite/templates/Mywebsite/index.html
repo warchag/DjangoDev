@@ -1,0 +1,33 @@
+{% extends 'Mywebsite/header.html' %} {% block content %} {% load static %}
+<br>
+<style>
+    .card-body {
+        padding-bottom: 5px;
+    }
+</style>
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="d-block w-100" src="{% static 'images/brand.jpg'%}  " alt="First slide">
+        </div>
+    </div>
+</div>
+
+<hr> {% for data in news %}
+<form action="{% url 'contentresult' %}" method="get" id="my_form">
+    <div class="shadow p-3 mb-2 bg-white rounded">
+        <div class="card-header text-dark" style="background-color: #ffffff; ">
+            <h6><b>{{data.news_title}}</b>
+                <h6>
+        </div>
+        <input type="hidden" name="title" value="{{data.news_title}}">
+        <img class="card-img-top" src="{{ data.news_photo.url}}" alt="Card image cap">
+        <div class="card-body">
+            <input type="submit" value="อ่านต่อ" class="btn btn-info btn-sm">
+            <p class="card-text"><small class="text-muted"> {{data.news_date}} เขียนโดย worrachag</small> </p>
+
+        </div>
+    </div>
+</form>
+
+{%endfor%} {% endblock %}

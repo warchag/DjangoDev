@@ -1,0 +1,23 @@
+{% extends 'Mywebsite/header.html' %}
+{% block content %}
+<br>
+<h1>Login เข้าใช้งานระบบ</h1>
+{% for msg in messages %}
+<div class="alert alert-danger" role="alert">
+    {{msg}}
+</div>
+{% endfor %}
+
+<form action="{% url 'logincheck' %}" method="POST">
+    {% csrf_token %}
+    <div class='form-group'>
+        <label for="">Username</label>
+        <input type="text" class="form-control" name="username" required>
+    </div>
+    <div class='form-group'>
+        <label for="">Password</label>
+        <input type="password" class="form-control" name="password" required>
+    </div>
+    <input type="submit" value="Login เข้าใช้งาน" class="btn btn-success">
+</form>
+{% endblock %}

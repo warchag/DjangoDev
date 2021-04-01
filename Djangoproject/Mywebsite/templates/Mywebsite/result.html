@@ -1,0 +1,15 @@
+{% extends 'Mywebsite/header.html' %} {% block content %}
+<br> {% for data in result %}
+<input type="hidden" value="{{data.id}}" name="id"> {% autoescape off %}
+<div class='form-group'>
+    <h1>{{data.news_title | safe }}</h1>
+</div>
+
+
+<div class="shadow p-3 mb-5 bg-white rounded">
+
+    <div class="card-body">
+        <p>{{data.news_detail | safe }}</p>
+    </div>
+</div>
+{% endautoescape %} {%endfor%} {% endblock %}

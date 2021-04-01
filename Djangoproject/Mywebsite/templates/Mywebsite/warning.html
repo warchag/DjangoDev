@@ -1,0 +1,12 @@
+
+{% extends 'Mywebsite/header.html' %}
+{% block content %}
+{% load static %}
+<script src="{% static 'js/js1.js' %}"></script>
+<script>js1()</script>
+<link rel="stylesheet" href="{% static 'css/mycss.css'%}">
+<br>
+<img  src="{% static 'images/stop.png' %}" class="center">
+<h1>คุณยังไม่ได้รับอนุญาติในการเพิ่มข้อมูลข่าว กรุณารอ admin ตรวจสอบข้อมูล</h1>
+
+{% endblock %}
